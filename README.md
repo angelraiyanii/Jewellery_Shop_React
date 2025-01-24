@@ -1,3 +1,12 @@
+# for create a froject use command
+command: npx create-react-app projectname
+
+# run the project
+npm start 
+
+# if get error in browser Then write 
+npm install --save-dev web-vitals
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -14,9 +14,9 @@ class PersonDefaultDemo extends Component {
 }
 
 PersonDefaultDemo.defaultProps = {
-  name: "ABC XYZ",
-  gender:"Male",
-  designation:"Director",
+  name: "Angel Raiyani",
+  gender:"Female",
+  designation:"Student",
 }
   
 export default PersonDefaultDemo;

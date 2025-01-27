@@ -1,15 +1,17 @@
 // life cycle class components
 import React,{ Component } from "react";
-import LifeCycle from "./components/lifecycle";
-import UseStateFun from "./components/functionCom";
-import PersonDefaultDemo from "./components/DefaultProp";
+
+import Validation from "./components/Validation";
+
+
 export default class App extends Component {
+  
   render() {
   return (
    <>
-   <LifeCycle></LifeCycle> 
-  <UseStateFun></UseStateFun>
-  <PersonDefaultDemo></PersonDefaultDemo>
+  <Validation></Validation>
+
+
     </>
   );
 }

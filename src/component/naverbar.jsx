@@ -1,13 +1,14 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
+import { FaUser, FaUserPlus, FaUserCircle } from "react-icons/fa"; // Import icons
 
 export class Naverbar extends Component {
   render() {
     return (
       <>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark p ">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark p">
           <a className="navbar-brand" href="#">
-
+            Navbar
           </a>
           <button
             className="navbar-toggler"
@@ -31,9 +32,10 @@ export class Naverbar extends Component {
                 <Link className="nav-link" to="/contain">
                   About
                 </Link>
-              </li> <li className="nav-item">
+              </li>
+              <li className="nav-item">
                 <Link className="nav-link" to="/Product">
-                  Producr
+                  Product
                 </Link>
               </li>
               <li className="nav-item dropdown">
@@ -50,12 +52,14 @@ export class Naverbar extends Component {
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
                     <Link className="dropdown-item" to="/Login">
+                      <FaUser className="me-2" />
                       Login
                     </Link>
                   </li>
                   <li>
                     <Link className="dropdown-item" to="/Registor">
-                      Registor
+                      <FaUserPlus className="me-2" />
+                      Register
                     </Link>
                   </li>
                   <li>
@@ -63,6 +67,7 @@ export class Naverbar extends Component {
                   </li>
                   <li>
                     <a className="dropdown-item" href="#">
+                      <FaUserCircle className="me-2" />
                       Account
                     </a>
                   </li>

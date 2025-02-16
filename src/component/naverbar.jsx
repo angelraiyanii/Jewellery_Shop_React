@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
-import { FaUser, FaUserPlus, FaUserCircle } from "react-icons/fa"; // Import icons
+import { FaUser, FaUserPlus, FaUserCircle,FaHeart, FaShoppingCart  } from "react-icons/fa"; // Import icons
+
 
 export class Naverbar extends Component {
   render() {
@@ -8,7 +9,7 @@ export class Naverbar extends Component {
       <>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark p">
           <a className="navbar-brand" href="#">
-            Navbar
+            React
           </a>
           <button
             className="navbar-toggler"
@@ -38,6 +39,11 @@ export class Naverbar extends Component {
                   Product
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/SiglePro">
+                  Sigle Product
+                </Link>
+              </li>
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
@@ -60,6 +66,18 @@ export class Naverbar extends Component {
                     <Link className="dropdown-item" to="/Registor">
                       <FaUserPlus className="me-2" />
                       Register
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/Wishlist">
+                      <FaHeart className="me-2" />
+                      Wishlist
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/Cart">
+                      <FaShoppingCart className="me-2" />
+                      Your Cart
                     </Link>
                   </li>
                   <li>

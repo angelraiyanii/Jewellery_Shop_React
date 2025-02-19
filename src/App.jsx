@@ -10,7 +10,9 @@ import SiglePro from "./component/SiglePro";
 import Wishlist from "./component/Wishlist";
 import Cart from "./component/Cart";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import AdPro from "./component/Admin/AdPro";
+import AdCategory from "./component/Admin/AdCategory";
+import Account from "./component/Account";
 function App() {
   return (
     <>
@@ -26,7 +28,9 @@ function App() {
           <Route path="/Wishlist" element={<Wishlist />} />
           <Route path="/Cart" element={<Cart />} />
           <Route path="/SiglePro" element={<SiglePro />} />
-
+          <Route path="/Account" element={<Account />}></Route>
+          <Route path="/Admin/AdCategory" element={<AdCategory />}></Route>
+          <Route path="/Admin/AdPro" element={<AdPro />}></Route>
         </Routes>
         <Footer />
       </Router>

@@ -1,7 +1,12 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
-import { FaUser, FaUserPlus, FaUserCircle,FaHeart, FaShoppingCart  } from "react-icons/fa"; // Import icons
-
+import {
+  FaUser,
+  FaUserPlus,
+  FaUserCircle,
+  FaHeart,
+  FaShoppingCart,
+} from "react-icons/fa"; // Import icons
 
 export class Naverbar extends Component {
   render() {
@@ -84,10 +89,36 @@ export class Naverbar extends Component {
                     <hr className="dropdown-divider" />
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <Link className="dropdown-item" to="/Account">
                       <FaUserCircle className="me-2" />
                       Account
-                    </a>
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Admin
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li>
+                    <Link className="dropdown-item" to="Admin/AdPro">
+                      <FaUser className="me-2" />
+                      Add Product
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/Admin/AdCategory">
+                      <FaUserPlus className="me-2" />
+                      Add Cetegory
+                    </Link>
                   </li>
                 </ul>
               </li>

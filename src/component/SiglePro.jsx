@@ -19,11 +19,7 @@ export class SiglePro extends Component {
             />
           </div>
           <div className="col-md-8">
-            {/* <h5 className="color">
-                <h2>About As</h2>
-             <br></br>
-             <b>Heres an example of customizing the Bootstrap grid at the mediumbreakpoint and above. Weve increased the .col padding with .px-md-5 and then counteracted that with .mx-md-n5 on the parent .row.Heres an example of customizing the Bootstrap grid at the mediumbreakpoint and above. Weve increased the .col padding with .px-md-5 and then counteracted that with .mx-md-n5 on the parent .row.Heres an example of customizing the Bootstrap grid at the mediumbreakpoint and above. Weve increased the .col padding with .px-md-5 and then counteracted that with .mx-md-n5 on the parent .row.</b>
-            </h5> */}
+           
             <div className="mt-5">
               <div className="product-details text-start">
                 <h3>ProductName</h3>
@@ -125,6 +121,7 @@ export class SiglePro extends Component {
                       type="number"
                       id="quantity"
                       name="quantity"
+                      
                       className="form-control w-25"
                     />
                   </div>

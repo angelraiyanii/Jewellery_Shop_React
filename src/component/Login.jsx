@@ -4,11 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 const Login = () => {
   const [formData, setFormData] = useState({
-    name: "",
     email: "",
-    phone: "",
     password: "",
-    appointment: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -38,9 +35,10 @@ const Login = () => {
     <center>
       <div className="card">
         <div className="container mt-5">
-          <h2 style={{ textAlign: "center", marginBottom: "50px" }}>Contact Now</h2>
+          <h2 style={{ textAlign: "center", marginBottom: "50px" }}>
+            Login Now
+          </h2>
           <form onSubmit={handleSubmit}>
-
             {/* Email */}
             <div className="mb-3">
               <label htmlFor="email" className="form-label fs-4">
@@ -59,7 +57,6 @@ const Login = () => {
               )}
             </div>
 
-
             {/* Password */}
             <div className="mb-3">
               <label htmlFor="password" className="form-label fs-4">
@@ -69,7 +66,9 @@ const Login = () => {
                 type="password"
                 id="password"
                 name="password"
-                className={`form-control ${errors.password ? "is-invalid" : ""}`}
+                className={`form-control ${
+                  errors.password ? "is-invalid" : ""
+                }`}
                 value={formData.password}
                 onChange={handleChange}
               />
@@ -83,7 +82,9 @@ const Login = () => {
               Submit
             </button>
           </form>
-        </div></div></center>
+        </div>
+      </div>
+    </center>
   );
 };
 

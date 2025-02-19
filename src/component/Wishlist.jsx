@@ -9,7 +9,7 @@ export class Wishlist extends Component {
             <section className="cart-section py-5 mb-5">
               <div className="container">
                 <h2 className="mb-4 text-center">Your Wishlist</h2>
-                <div class="table-responsive">
+                <div class="table-responsive"><i className="fab fa-angel"></i>
                   <table class="table table-bordered">
                     <thead>
                       <tr>

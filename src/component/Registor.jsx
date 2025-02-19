@@ -41,7 +41,7 @@ const Registor = () => {
     <center>
     <div className="card">
     <div className="container mt-5">
-      <h2 style={{textAlign:"center", marginBottom:"50px"}}>Contact Now</h2>
+      <h2 style={{textAlign:"center", marginBottom:"50px"}}>Registor Now</h2>
       <form onSubmit={handleSubmit}>
         {/* Name */}
         <div className="mb-3">

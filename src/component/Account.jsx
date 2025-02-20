@@ -35,7 +35,6 @@ export class Account extends Component {
               </a>
             </div>
 
-            {/* Profile Information */}
             <div className="col-md-8">
               <fieldset className="border p-4 rounded mb-4">
                 <h3 className="w-auto text-start" style={{ color: "#41566E" }}>

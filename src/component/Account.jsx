@@ -60,7 +60,7 @@ export class Account extends Component {
                   <div className="col-md-6 mb-3">
                     <label htmlFor="email">Email Address</label>
                     <p id="email" className="form-control-static">
-                      angelraiynai@gmail.com
+                      angelraiynaii@gmail.com
                     </p>
                   </div>
                   <div className="col-md-6 mb-3">

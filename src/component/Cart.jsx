@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Earring from "./images/Earring.jpg";
+
 export class Cart extends Component {
   render() {
     return (
@@ -47,7 +48,7 @@ export class Cart extends Component {
                         </td>
                         <td>1598.22</td>
                         <td>
-                          <button className="btn btn-outline-primary ms-2">
+                          <button className="btn btn-outline-primary ms-2"  onClick={() => navigate("/SiglePro")}>
                             View Product
                           </button>{" "}
                           <button className="btn btn-outline-danger">

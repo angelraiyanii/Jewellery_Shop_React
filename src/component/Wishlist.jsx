@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Earring from "./images/Earring.jpg";
+
 export class Wishlist extends Component {
   render() {
     return (

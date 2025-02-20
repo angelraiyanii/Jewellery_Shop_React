@@ -35,7 +35,11 @@ export class AdPro extends Component {
     let isValid = true;
 
     Object.keys(this.state).forEach((key) => {
-      if (key !== "errors" && key !== "productImagePreview" && this.state[key] === "") {
+      if (
+        key !== "errors" &&
+        key !== "productImagePreview" &&
+        this.state[key] === ""
+      ) {
         errors[key] = "This field is required";
         isValid = false;
       }
@@ -48,7 +52,7 @@ export class AdPro extends Component {
     } else {
       const file = this.state.productImage;
       const fileSize = file.size / 1024 / 1024; // in MB
-      const validTypes = ['image/jpeg', 'image/png', 'image/jpg'];
+      const validTypes = ["image/jpeg", "image/png", "image/jpg"];
 
       if (!validTypes.includes(file.type)) {
         errors.productImage = "Only JPG, JPEG, and PNG files are allowed";
@@ -73,12 +77,12 @@ export class AdPro extends Component {
   };
 
   handleChange = (event) => {
-    this.setState({ 
+    this.setState({
       [event.target.name]: event.target.value,
       errors: {
         ...this.state.errors,
-        [event.target.name]: ""
-      }
+        [event.target.name]: "",
+      },
     });
   };
 
@@ -87,14 +91,14 @@ export class AdPro extends Component {
     if (file) {
       // Create preview URL
       const previewUrl = URL.createObjectURL(file);
-      
+
       this.setState({
         productImage: file,
         productImagePreview: previewUrl,
         errors: {
           ...this.state.errors,
-          productImage: ""
-        }
+          productImage: "",
+        },
       });
     }
   };
@@ -174,7 +178,7 @@ export class AdPro extends Component {
                         <input
                           type="text"
                           name="price"
-                          placeholder="6798"
+                          placeholder="00.00"
                           className={`form-control ${
                             this.state.errors.price ? "is-invalid" : ""
                           }`}
@@ -189,18 +193,18 @@ export class AdPro extends Component {
                         <input
                           type="text"
                           name="discount"
-                          placeholder="34% off"
+                          placeholder="00.0 % off"
                           className={`form-control ${
                             this.state.errors.discount ? "is-invalid" : ""
                           }`}
                           onChange={this.handleChange}
-                        />
+                        ></input>
                         <div className="invalid-feedback">
                           {this.state.errors.discount}
                         </div>
                       </div>
                     </div>
-
+                    <hr />
                     {/* Weight Details */}
                     <h5>Weight Details</h5>
                     <div className="row">
@@ -209,7 +213,7 @@ export class AdPro extends Component {
                         <input
                           type="text"
                           name="goldWeight"
-                          placeholder="0.06"
+                          placeholder="0.00"
                           className={`form-control ${
                             this.state.errors.goldWeight ? "is-invalid" : ""
                           }`}
@@ -226,7 +230,7 @@ export class AdPro extends Component {
                         <input
                           type="text"
                           name="diamondWeight"
-                          placeholder="0.09"
+                          placeholder="0.00"
                           className={`form-control ${
                             this.state.errors.diamondWeight ? "is-invalid" : ""
                           }`}
@@ -243,7 +247,7 @@ export class AdPro extends Component {
                         <input
                           type="text"
                           name="grossWeight"
-                          placeholder="0.40"
+                          placeholder="0.00"
                           className={`form-control ${
                             this.state.errors.grossWeight ? "is-invalid" : ""
                           }`}
@@ -254,7 +258,7 @@ export class AdPro extends Component {
                         </div>
                       </div>
                     </div>
-
+                    <hr />
                     {/* Price Details */}
                     <h5>Price Details</h5>
                     <div className="row">
@@ -263,7 +267,7 @@ export class AdPro extends Component {
                         <input
                           type="text"
                           name="goldPrice"
-                          placeholder="1234.90"
+                          placeholder="0000.00"
                           className={`form-control ${
                             this.state.errors.goldPrice ? "is-invalid" : ""
                           }`}
@@ -301,7 +305,7 @@ export class AdPro extends Component {
                         <input
                           type="text"
                           name="makingCharges"
-                          placeholder="130.00"
+                          placeholder="000.00"
                           className={`form-control ${
                             this.state.errors.makingCharges ? "is-invalid" : ""
                           }`}
@@ -318,7 +322,7 @@ export class AdPro extends Component {
                         <input
                           type="text"
                           name="overheadCharges"
-                          placeholder="500"
+                          placeholder="000"
                           className={`form-control ${
                             this.state.errors.overheadCharges
                               ? "is-invalid"
@@ -339,7 +343,7 @@ export class AdPro extends Component {
                         <input
                           type="text"
                           name="basePrice"
-                          placeholder="2345.09"
+                          placeholder="0000.00"
                           className={`form-control ${
                             this.state.errors.basePrice ? "is-invalid" : ""
                           }`}
@@ -354,7 +358,7 @@ export class AdPro extends Component {
                         <input
                           type="text"
                           name="tax"
-                          placeholder="78.04"
+                          placeholder="00.00"
                           className={`form-control ${
                             this.state.errors.tax ? "is-invalid" : ""
                           }`}
@@ -373,7 +377,7 @@ export class AdPro extends Component {
                         <input
                           type="text"
                           name="totalPrice"
-                          placeholder="23343.89"
+                          placeholder="0000.00"
                           className={`form-control ${
                             this.state.errors.totalPrice ? "is-invalid" : ""
                           }`}
@@ -384,15 +388,16 @@ export class AdPro extends Component {
                         </div>
                       </div>
                     </div>
-
+                    <hr />
                     {/* Product Details */}
+                    <h5>Product Details</h5>
                     <div className="row">
                       <div className="col-md-6 mb-3">
                         <label className="form-label">Product Type</label>
                         <input
                           type="text"
                           name="productType"
-                          placeholder="Rose Gold"
+                          placeholder="Gold Type"
                           className={`form-control ${
                             this.state.errors.productType ? "is-invalid" : ""
                           }`}
@@ -407,7 +412,7 @@ export class AdPro extends Component {
                         <input
                           type="text"
                           name="productPurity"
-                          placeholder="20K"
+                          placeholder="00K"
                           className={`form-control ${
                             this.state.errors.productPurity ? "is-invalid" : ""
                           }`}
@@ -426,7 +431,7 @@ export class AdPro extends Component {
                         <input
                           type="text"
                           name="diamondColor"
-                          placeholder="White"
+                          placeholder="Color Of Diamond"
                           className={`form-control ${
                             this.state.errors.diamondColor ? "is-invalid" : ""
                           }`}
@@ -441,7 +446,7 @@ export class AdPro extends Component {
                         <input
                           type="text"
                           name="diamondPieces"
-                          placeholder="0"
+                          placeholder="00.00"
                           className={`form-control ${
                             this.state.errors.diamondPieces ? "is-invalid" : ""
                           }`}
@@ -460,7 +465,7 @@ export class AdPro extends Component {
                         <input
                           type="text"
                           name="stock"
-                          placeholder="1200"
+                          placeholder="00"
                           className={`form-control ${
                             this.state.errors.stock ? "is-invalid" : ""
                           }`}
@@ -475,7 +480,7 @@ export class AdPro extends Component {
                         <input
                           type="number"
                           name="quantity"
-                          placeholder="1"
+                          placeholder="0"
                           className={`form-control ${
                             this.state.errors.quantity ? "is-invalid" : ""
                           }`}

@@ -24,7 +24,6 @@ const Register = () => {
     const file = e.target.files[0];
 
     if (file) {
-      // Validate image type (Only allow PNG, JPG, JPEG)
       const validTypes = ["image/jpeg", "image/png", "image/jpg"];
       if (!validTypes.includes(file.type)) {
         setErrors({ ...errors, profileImage: "Only JPG, JPEG, and PNG files are allowed." });
@@ -38,7 +37,6 @@ const Register = () => {
         return;
       }
 
-      // If valid, update state
       setFormData({ ...formData, profileImage: file });
       setImagePreview(URL.createObjectURL(file)); // Generate preview
       setErrors({ ...errors, profileImage: "" }); // Clear error
@@ -60,7 +58,6 @@ const Register = () => {
       errors.email = "Email is required.";
     } else if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(data.email)) {
       errors.email = "Invalid email format.";
-    }
 
     // Phone Validation
     if (!data.phone) {
@@ -135,7 +132,6 @@ const Register = () => {
             <label htmlFor="email" className="form-label fw-bold">Email</label>
             <input
               type="email"
-              id="email"
               name="email"
               className={`form-control ${errors.email ? "is-invalid" : ""}`}
               value={formData.email}

@@ -4,16 +4,19 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 const Register = () => {
   const [formData, setFormData] = useState({
-    name: "",
+    fullName: "",
     email: "",
-    phone: "",
-    password: "",
+    mobile: "",
+    gender: "",
     address: "",
-    profileImage: null, // To store uploaded image
+    city: "",
+    state: "",
+    pincode: "",
+    profileImage: null,
   });
 
   const [errors, setErrors] = useState({});
-  const [imagePreview, setImagePreview] = useState(null); // To show image preview
+  const [imagePreview, setImagePreview] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,62 +29,54 @@ const Register = () => {
     if (file) {
       const validTypes = ["image/jpeg", "image/png", "image/jpg"];
       if (!validTypes.includes(file.type)) {
-        setErrors({ ...errors, profileImage: "Only JPG, JPEG, and PNG files are allowed." });
+        setErrors({
+          ...errors,
+          profileImage: "Only JPG, JPEG, and PNG files are allowed.",
+        });
         return;
       }
 
-      // Validate image size (Max 2MB)
-      const maxSize = 2 * 1024 * 1024; // 2MB
+      const maxSize = 2 * 1024 * 1024;
       if (file.size > maxSize) {
-        setErrors({ ...errors, profileImage: "File size must be less than 2MB." });
+        setErrors({
+          ...errors,
+          profileImage: "File size must be less than 2MB.",
+        });
         return;
       }
 
       setFormData({ ...formData, profileImage: file });
-      setImagePreview(URL.createObjectURL(file)); // Generate preview
-      setErrors({ ...errors, profileImage: "" }); // Clear error
+      setImagePreview(URL.createObjectURL(file));
+      setErrors({ ...errors, profileImage: "" });
     }
   };
 
   const validateForm = (data) => {
     let errors = {};
 
-    // Name Validation
-    if (!data.name) {
-      errors.name = "Name is required.";
-    } else if (data.name.length < 3) {
-      errors.name = "Name must be at least 3 characters long.";
-    }
+    if (!data.fullName) errors.fullName = "Full name is required.";
+    else if (data.fullName.length < 3)
+      errors.fullName = "Full name must be at least 3 characters.";
 
-    // Email Validation
-    if (!data.email) {
-      errors.email = "Email is required.";
-    } else if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(data.email)) {
+    if (!data.email) errors.email = "Email is required.";
+    else if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(data.email))
       errors.email = "Invalid email format.";
 
-    // Phone Validation
-    if (!data.phone) {
-      errors.phone = "Phone number is required.";
-    } else if (!/^\d{10}$/.test(data.phone)) {
-      errors.phone = "Phone number must be 10 digits.";
-    }
+    if (!data.mobile) errors.mobile = "Mobile number is required.";
+    else if (!/^\d{10}$/.test(data.mobile))
+      errors.mobile = "Enter a valid 10-digit mobile number.";
 
-    // Password Validation
-    if (!data.password) {
-      errors.password = "Password is required.";
-    } else if (data.password.length < 6) {
-      errors.password = "Password must be at least 6 characters long.";
-    }
+    if (!data.gender) errors.gender = "Please select a gender.";
 
-    // Address Validation
-    if (!data.address) {
-      errors.address = "Address is required.";
-    }
+    if (!data.address) errors.address = "Address is required.";
+    if (!data.city) errors.city = "City is required.";
+    if (!data.state) errors.state = "State is required.";
 
-    // Profile Image Validation
-    if (!data.profileImage) {
-      errors.profileImage = "Profile image is required.";
-    }
+    if (!data.pincode) errors.pincode = "Pincode is required.";
+    else if (!/^\d{6}$/.test(data.pincode))
+      errors.pincode = "Pincode must be a 6-digit number.";
+
+    if (!data.profileImage) errors.profileImage = "Profile image is required.";
 
     return errors;
   };
@@ -93,13 +88,16 @@ const Register = () => {
 
     if (Object.keys(validationErrors).length === 0) {
       console.log("Form Data Submitted:", formData);
-      alert("Form submitted successfully!");
+      alert("Registration successful!");
       setFormData({
-        name: "",
+        fullName: "",
         email: "",
-        phone: "",
-        password: "",
+        mobile: "",
+        gender: "",
         address: "",
+        city: "",
+        state: "",
+        pincode: "",
         profileImage: null,
       });
       setImagePreview(null);
@@ -108,28 +106,29 @@ const Register = () => {
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center ">
-      <div className="card shadow-lg p-4" style={{ width: "400px" }}>
-        <h2 className="text-center mb-4">Register Now</h2>
+    <div className="container d-flex justify-content-center align-items-center ">
+      <div className="card shadow-lg p-4 w-100" style={{ maxWidth: "600px" }}>
+        <h2 className="text-center mb-4 ">Register Now</h2>
         <form onSubmit={handleSubmit}>
-          {/* Name */}
+          {/* Full Name */}
           <div className="mb-3">
-            <label htmlFor="name" className="form-label fw-bold">Name</label>
+            <label className="form-label fw-bold">Full Name</label>
             <input
               type="text"
-              id="name"
-              name="name"
-              className={`form-control ${errors.name ? "is-invalid" : ""}`}
-              value={formData.name}
+              name="fullName"
+              className={`form-control ${errors.fullName ? "is-invalid" : ""}`}
+              value={formData.fullName}
               onChange={handleChange}
-              placeholder="Enter your name"
+              placeholder="Enter your full name"
             />
-            {errors.name && <div className="invalid-feedback">{errors.name}</div>}
+            {errors.fullName && (
+              <div className="invalid-feedback">{errors.fullName}</div>
+            )}
           </div>
 
           {/* Email */}
           <div className="mb-3">
-            <label htmlFor="email" className="form-label fw-bold">Email</label>
+            <label className="form-label fw-bold">Email</label>
             <input
               type="email"
               name="email"
@@ -138,77 +137,137 @@ const Register = () => {
               onChange={handleChange}
               placeholder="Enter your email"
             />
-            {errors.email && <div className="invalid-feedback">{errors.email}</div>}
+            {errors.email && (
+              <div className="invalid-feedback">{errors.email}</div>
+            )}
           </div>
 
-          {/* Phone */}
-          <div className="mb-3">
-            <label htmlFor="phone" className="form-label fw-bold">Phone No</label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              className={`form-control ${errors.phone ? "is-invalid" : ""}`}
-              value={formData.phone}
-              onChange={handleChange}
-              placeholder="Enter your phone number"
-            />
-            {errors.phone && <div className="invalid-feedback">{errors.phone}</div>}
-          </div>
+          {/* Mobile */}
+          <div className="row">
+            <div className="col-md-6 mb-3">
+              <label className="form-label fw-bold">Mobile No</label>
+              <input
+                type="tel"
+                name="mobile"
+                className={`form-control ${errors.mobile ? "is-invalid" : ""}`}
+                value={formData.mobile}
+                onChange={handleChange}
+                placeholder="Enter your mobile number"
+              />
+              {errors.mobile && (
+                <div className="invalid-feedback">{errors.mobile}</div>
+              )}
+            </div>
 
-          {/* Password */}
-          <div className="mb-3">
-            <label htmlFor="password" className="form-label fw-bold">Password</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              className={`form-control ${errors.password ? "is-invalid" : ""}`}
-              value={formData.password}
-              onChange={handleChange}
-              placeholder="Enter your password"
-            />
-            {errors.password && <div className="invalid-feedback">{errors.password}</div>}
+            {/* Gender */}
+            <div className="col-md-6 mb-3">
+              <label className="form-label fw-bold">Gender</label>
+              <select
+                name="gender"
+                className={`form-control ${errors.gender ? "is-invalid" : ""}`}
+                value={formData.gender}
+                onChange={handleChange}
+              >
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+              {errors.gender && (
+                <div className="invalid-feedback">{errors.gender}</div>
+              )}
+            </div>
           </div>
 
           {/* Address */}
           <div className="mb-3">
-            <label htmlFor="address" className="form-label fw-bold">Address</label>
-            <input
-              type="text"
-              id="address"
+            <label className="form-label fw-bold">Address</label>
+            <textarea
               name="address"
               className={`form-control ${errors.address ? "is-invalid" : ""}`}
               value={formData.address}
               onChange={handleChange}
               placeholder="Enter your address"
-            />
-            {errors.address && <div className="invalid-feedback">{errors.address}</div>}
+              rows="2"
+            ></textarea>
+            {errors.address && (
+              <div className="invalid-feedback">{errors.address}</div>
+            )}
           </div>
 
-          {/* Profile Image Upload */}
+          {/* City & State */}
+          <div className="row">
+            <div className="col-md-6 mb-3">
+              <label className="form-label fw-bold">City</label>
+              <input
+                type="text"
+                name="city"
+                className={`form-control ${errors.city ? "is-invalid" : ""}`}
+                value={formData.city}
+                onChange={handleChange}
+                placeholder="Enter your city"
+              />
+              {errors.city && (
+                <div className="invalid-feedback">{errors.city}</div>
+              )}
+            </div>
+            <div className="col-md-6 mb-3">
+              <label className="form-label fw-bold">State</label>
+              <input
+                type="text"
+                name="state"
+                className={`form-control ${errors.state ? "is-invalid" : ""}`}
+                value={formData.state}
+                onChange={handleChange}
+                placeholder="Enter your state"
+              />
+              {errors.state && (
+                <div className="invalid-feedback">{errors.state}</div>
+              )}
+            </div>
+          </div>
+
+          {/* Pincode */}
           <div className="mb-3">
-            <label htmlFor="profileImage" className="form-label fw-bold">Profile Image</label>
+            <label className="form-label fw-bold">Pincode</label>
+            <input
+              type="text"
+              name="pincode"
+              className={`form-control ${errors.pincode ? "is-invalid" : ""}`}
+              value={formData.pincode}
+              onChange={handleChange}
+              placeholder="Enter your pincode"
+            />
+            {errors.pincode && (
+              <div className="invalid-feedback">{errors.pincode}</div>
+            )}
+          </div>
+          {/* Image Upload */}
+          <div className="mb-3">
+            <label className="form-label fw-bold">Profile Image</label>
             <input
               type="file"
-              id="profileImage"
-              className={`form-control ${errors.profileImage ? "is-invalid" : ""}`}
-              onChange={handleImageChange}
+              name="profileImage"
+              className={`form-control ${
+                errors.profileImage ? "is-invalid" : ""
+              }`}
               accept="image/png, image/jpeg, image/jpg"
+              onChange={handleImageChange}
             />
-            {errors.profileImage && <div className="invalid-feedback">{errors.profileImage}</div>}
+            {errors.profileImage && (
+              <div className="invalid-feedback">{errors.profileImage}</div>
+            )}
+            {imagePreview && (
+              <img
+                src={imagePreview}
+                alt="Preview"
+                className="mt-3 img-thumbnail"
+                width="100"
+              />
+            )}
           </div>
-
-          {/* Image Preview */}
-          {imagePreview && (
-            <div className="mb-3 text-center">
-              <img src={imagePreview} alt="Preview" className="img-thumbnail" style={{ width: "100px", height: "100px" }} />
-            </div>
-          )}
-
           {/* Submit Button */}
-          <button type="submit" className="btn btn-primary w-50 d-block mx-auto">
-            Submit
+          <button type="submit" className="btn btn-primary w-50">
+            Register
           </button>
         </form>
       </div>

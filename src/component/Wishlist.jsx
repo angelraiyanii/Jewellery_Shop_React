@@ -10,9 +10,10 @@ export class Wishlist extends Component {
             <section className="cart-section py-5 mb-5">
               <div className="container">
                 <h2 className="mb-4 text-center">Your Wishlist</h2>
-                <div class="table-responsive"><i className="fab fa-angel"></i>
+                <div class="table-responsive">
+                  <i className="fab fa-angel"></i>
                   <table class="table table-bordered">
-                    <thead>
+                    <thead className="table-dark">
                       <tr>
                         <th>Product Image</th>
                         <th>Product Name</th>
@@ -85,6 +86,31 @@ export class Wishlist extends Component {
                 </div>
               </div>
             </section>
+            {/* Pagenation start */}
+            <div className="row">
+              <div className="col-md-5"></div>
+              <nav className="col-md-2">
+                <ul className="pagination">
+                  <li className="page-item">
+                    <a className="page-link btn-dark" href="#">
+                      1<i className="fa fa-chevron-left"></i>
+                    </a>
+                  </li>
+                  <li className="page-item">
+                    <a className="page-link btn-outline-dark" href="#">
+                      2
+                    </a>
+                  </li>
+                  <li className="page-item">
+                    <a className="page-link btn-dark" href="#">
+                      3<i className="fa fa-chevron-right"></i>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+              <div className="col-md-5"></div>
+            </div>
+            {/* Pagination End */}
           </div>
         </div>
       </div>

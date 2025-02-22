@@ -5,6 +5,7 @@ import {
   FaUserPlus,
   FaUserCircle,
   FaHeart,
+  FaTags,
   FaShoppingCart,
 } from "react-icons/fa"; // Import icons
 
@@ -19,7 +20,9 @@ class Naverbar extends Component {
     return (
       <>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark p">
-          <a className="navbar-brand" href="#">React</a>
+          <a className="navbar-brand" href="#">
+            React
+          </a>
           <button
             className="navbar-toggler"
             type="button"
@@ -34,19 +37,32 @@ class Naverbar extends Component {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link active" to="/Slider">Home</Link>
+                <Link className="nav-link active" to="/Slider">
+                  Home
+                </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/contain">About</Link>
+                <Link className="nav-link" to="/contain">
+                  About
+                </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/Product">Product</Link>
+                <Link className="nav-link" to="/Product">
+                  Product
+                </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/SiglePro">Single Product</Link>
+                <Link className="nav-link" to="/SiglePro">
+                  Single Product
+                </Link>
               </li>
               <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                >
                   Account
                 </a>
                 <ul className="dropdown-menu">
@@ -74,7 +90,9 @@ class Naverbar extends Component {
                       Your Cart
                     </Link>
                   </li>
-                  <li><hr className="dropdown-divider" /></li>
+                  <li>
+                    <hr className="dropdown-divider" />
+                  </li>
                   <li>
                     <Link className="dropdown-item" to="/Account">
                       <FaUserCircle className="me-2" />
@@ -84,20 +102,25 @@ class Naverbar extends Component {
                 </ul>
               </li>
               <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                >
                   Admin
                 </a>
                 <ul className="dropdown-menu">
                   <li>
                     <Link className="dropdown-item" to="/Admin/AdPro">
-                      <FaUser className="me-2" />
-                      Add Product
+                    <FaShoppingCart className="me-2"  />
+                      Product View
                     </Link>
                   </li>
                   <li>
                     <Link className="dropdown-item" to="/Admin/AdCategory">
-                      <FaUserPlus className="me-2" />
-                      Add Category
+                      <FaTags className="me-2" />
+                      Category View
                     </Link>
                   </li>
                 </ul>
@@ -105,10 +128,16 @@ class Naverbar extends Component {
             </ul>
 
             {/* Fix Button Navigation */}
-            <button className="btn btn-success" onClick={() => navigate("/Login")}>
+            <button
+              className="btn btn-success"
+              onClick={() => navigate("/Login")}
+            >
               Login
             </button>
-            <button className="btn btn-success ms-2" onClick={() => navigate("/Register")}>
+            <button
+              className="btn btn-success ms-2"
+              onClick={() => navigate("/Register")}
+            >
               Register
             </button>
           </div>

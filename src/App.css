@@ -38,5 +38,12 @@
 }
 
 .read-the-docs {
-  color: #888;
+  color: #0e0a0a;
+}
+.page-link.btn-dark:hover {
+  background-color: #343a40 ; 
+  color: white ;
+  border-color: #23272b ;
+  border-radius: 5px;
+ 
 }

@@ -15,6 +15,7 @@ export class Account extends Component {
       city: "",
       state: "",
       pinCode: "",
+      zip: "",
       password: "",
       confirmPassword: "",
       profileImage: null,
@@ -66,10 +67,18 @@ export class Account extends Component {
     if (!this.state.state.trim()) {
       errors.state = "State is required";
     }
+    if (!this.state.profileImage) {
+      errors.profileImage = "Image is required";
+    }
     if (!this.state.pinCode.trim()) {
       errors.pinCode = "Pin Code is required";
     } else if (!/^\d{6}$/.test(this.state.pinCode)) {
       errors.pinCode = "Pin Code must be 6 digits";
+    }
+    if (!this.state.zip.trim()) {
+      errors.zip = "Zip Code is required";
+    } else if (!/^\d{6}$/.test(this.state.zip)) {
+      errors.zip = "Zip Code must be 6 digits";
     }
 
     this.setState({ errors });
@@ -173,19 +182,25 @@ export class Account extends Component {
                             <input
                               type="file"
                               id="profileImage"
-                              className="form-control"
+                              className={`form-control ${
+                                this.state.errors.profileImage
+                                  ? "is-invalid"
+                                  : ""
+                              }`}
                               accept="image/*"
                               onChange={(e) => {
                                 const file = e.target.files[0];
-                                if (file) {
-                                  this.setState({
-                                    profileImage: file,
-                                    profileImagePreview:
-                                      URL.createObjectURL(file),
-                                  });
-                                }
+                                this.setState({
+                                  profileImage: file,
+                                  profileImagePreview: file
+                                    ? URL.createObjectURL(file)
+                                    : null,
+                                });
                               }}
                             />
+                            <div className="invalid-feedback">
+                              {this.state.errors.profileImage}
+                            </div>
                           </div>
 
                           {/* Profile Image Preview */}
@@ -214,11 +229,17 @@ export class Account extends Component {
                               type="text"
                               id="fullName"
                               placeholder="Enter your full name"
+                              className={`form-control ${
+                                this.state.errors.fullName ? "is-invalid" : ""
+                              }`}
                               value={this.state.fullName}
                               onChange={(e) =>
                                 this.setState({ fullName: e.target.value })
                               }
                             />
+                            <div className="invalid-feedback">
+                              {this.state.errors.fullName}
+                            </div>
                           </div>
 
                           {/* Gender */}
@@ -228,7 +249,9 @@ export class Account extends Component {
                             </label>
                             <select
                               id="gender"
-                              className="form-control"
+                              className={`form-control ${
+                                this.state.errors.gender ? "is-invalid" : ""
+                              }`}
                               value={this.state.gender}
                               onChange={(e) =>
                                 this.setState({ gender: e.target.value })
@@ -239,6 +262,9 @@ export class Account extends Component {
                               <option value="female">Female</option>
                               <option value="other">Other</option>
                             </select>
+                            <div className="invalid-feedback">
+                              {this.state.errors.gender}
+                            </div>
                           </div>
 
                           {/* Email */}
@@ -250,11 +276,17 @@ export class Account extends Component {
                               type="email"
                               id="email"
                               placeholder="Enter your email address"
+                              className={`form-control ${
+                                this.state.errors.email ? "is-invalid" : ""
+                              }`}
                               value={this.state.email}
                               onChange={(e) =>
                                 this.setState({ email: e.target.value })
                               }
                             />
+                            <div className="invalid-feedback">
+                              {this.state.errors.email}
+                            </div>
                           </div>
 
                           {/* Phone Number */}
@@ -266,11 +298,17 @@ export class Account extends Component {
                               type="text"
                               id="phone"
                               placeholder="Enter your phone number"
+                              className={`form-control ${
+                                this.state.errors.phone ? "is-invalid" : ""
+                              }`}
                               value={this.state.phone}
                               onChange={(e) =>
                                 this.setState({ phone: e.target.value })
                               }
                             />
+                            <div className="invalid-feedback">
+                              {this.state.errors.phone}
+                            </div>
                           </div>
 
                           {/* Address */}
@@ -280,7 +318,9 @@ export class Account extends Component {
                             </label>
                             <textarea
                               id="address"
-                              className="form-control"
+                              className={`form-control ${
+                                this.state.errors.address ? "is-invalid" : ""
+                              }`}
                               placeholder="Enter your address"
                               value={this.state.address}
                               onChange={(e) =>
@@ -298,11 +338,17 @@ export class Account extends Component {
                               type="text"
                               id="city"
                               placeholder="Enter your city"
+                              className={`form-control ${
+                                this.state.errors.city ? "is-invalid" : ""
+                              }`}
                               value={this.state.city}
                               onChange={(e) =>
                                 this.setState({ city: e.target.value })
                               }
                             />
+                            <div className="invalid-feedback">
+                              {this.state.errors.city}
+                            </div>
                           </div>
 
                           {/* State */}
@@ -314,11 +360,17 @@ export class Account extends Component {
                               type="text"
                               id="state"
                               placeholder="Enter your state"
+                              className={`form-control ${
+                                this.state.errors.state ? "is-invalid" : ""
+                              }`}
                               value={this.state.state}
                               onChange={(e) =>
                                 this.setState({ state: e.target.value })
                               }
                             />
+                            <div className="invalid-feedback">
+                              {this.state.errors.state}
+                            </div>
                           </div>
 
                           {/* Zip - Now aligned correctly */}
@@ -330,11 +382,17 @@ export class Account extends Component {
                               type="text"
                               id="zip"
                               placeholder="Enter your zip code"
+                              className={`form-control ${
+                                this.state.errors.zip ? "is-invalid" : ""
+                              }`}
                               value={this.state.zip}
                               onChange={(e) =>
                                 this.setState({ zip: e.target.value })
                               }
                             />
+                            <div className="invalid-feedback">
+                              {this.state.errors.zip}
+                            </div>
                           </div>
 
                           {/* Submit Button */}

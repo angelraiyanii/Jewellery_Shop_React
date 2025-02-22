@@ -12,7 +12,7 @@ export class Cart extends Component {
                 <h2 className="mb-4 text-center">Your Cart</h2>
                 <div class="table-responsive">
                   <table class="table table-bordered">
-                    <thead>
+                    <thead className="table-dark">
                       <tr>
                         <th>Product Image</th>
                         <th>Product Name</th>
@@ -48,7 +48,10 @@ export class Cart extends Component {
                         </td>
                         <td>1598.22</td>
                         <td>
-                          <button className="btn btn-outline-primary ms-2"  onClick={() => navigate("/SiglePro")}>
+                          <button
+                            className="btn btn-outline-primary ms-2"
+                            onClick={() => navigate("/SiglePro")}
+                          >
                             View Product
                           </button>{" "}
                           <button className="btn btn-outline-danger">
@@ -82,6 +85,31 @@ export class Cart extends Component {
                 </div>
               </div>
             </section>
+            {/* Pagenation start */}
+            <div className="row">
+              <div className="col-md-5"></div>
+              <nav className="col-md-2">
+                <ul className="pagination">
+                  <li className="page-item">
+                    <a className="page-link btn-dark" href="#">
+                      1<i className="fa fa-chevron-left"></i>
+                    </a>
+                  </li>
+                  <li className="page-item">
+                    <a className="page-link btn-outline-dark" href="#">
+                      2
+                    </a>
+                  </li>
+                  <li className="page-item">
+                    <a className="page-link btn-dark" href="#">
+                      3<i className="fa fa-chevron-right"></i>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+              <div className="col-md-5"></div>
+            </div>
+            {/* Pagination End */}
           </div>
         </div>
       </div>

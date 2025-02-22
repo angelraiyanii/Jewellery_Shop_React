@@ -462,6 +462,31 @@ export class AddCategory extends Component {
           </div>
         )}
         {/* Category Update From end*/}
+        {/* Pagenation start */}
+        <div className="row">
+          <div className="col-md-5"></div>
+          <nav className="col-md-2">
+            <ul className="pagination">
+              <li className="page-item">
+                <a className="page-link btn-dark" href="#">
+                  1<i className="fa fa-chevron-left"></i>
+                </a>
+              </li>
+              <li className="page-item">
+                <a className="page-link btn-outline-dark" href="#">
+                  2
+                </a>
+              </li>
+              <li className="page-item">
+                <a className="page-link btn-dark" href="#">
+                  3<i className="fa fa-chevron-right"></i>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div className="col-md-5"></div>
+        </div>
+        {/* Pagination End */}
       </center>
     );
   }

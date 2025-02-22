@@ -34,7 +34,6 @@ export class AdPro extends Component {
     };
   }
 
-
   handleSubmit = (event) => {
     event.preventDefault();
     if (this.validateForm()) {
@@ -74,7 +73,8 @@ export class AdPro extends Component {
     let isValid = true;
 
     Object.keys(this.state).forEach((key) => {
-      if (key !== "errors" && this.state[key] === "") {
+      if (key !== "errors" && !this.state[key]) {
+        // Fix: Check if the field is empty
         errors[key] = "This field is required";
         isValid = false;
       }
@@ -146,14 +146,14 @@ export class AdPro extends Component {
               </form>
             </div>
 
-            {/* Insert Category Button */}
+            {/* Add Category Button */}
             <div className="col-12 col-md-4 d-flex justify-content-center justify-content-md-end">
               <button
                 id="toggleFormBtnI"
                 className="btn btn-success w-30 fs-5"
                 onClick={this.ShowProductForm} //this function name
               >
-                Insert Product
+                Add Product
               </button>
             </div>
           </div>
@@ -785,6 +785,7 @@ export class AdPro extends Component {
                                 <div className="invalid-feedback">
                                   {this.state.errors.productImage}
                                 </div>
+
                                 <small className="text-muted">
                                   Allowed formats: JPG, JPEG, PNG. Maximum size:
                                   5MB
@@ -1283,6 +1284,31 @@ export class AdPro extends Component {
           </div>
         )}
         {/* Product Update Form End */}
+        {/* Pagenation start */}
+        <div className="row">
+          <div className="col-md-5"></div>
+          <nav className="col-md-2">
+            <ul className="pagination">
+              <li className="page-item">
+                <a className="page-link btn-dark" href="#">
+                  1<i className="fa fa-chevron-left"></i>
+                </a>
+              </li>
+              <li className="page-item">
+                <a className="page-link btn-outline-dark" href="#">
+                  2
+                </a>
+              </li>
+              <li className="page-item">
+                <a className="page-link btn-dark" href="#">
+                  3<i className="fa fa-chevron-right"></i>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div className="col-md-5"></div>
+        </div>
+        {/* Pagination End */}
       </center>
     );
   }

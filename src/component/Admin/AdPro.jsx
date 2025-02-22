@@ -34,44 +34,6 @@ export class AdPro extends Component {
     };
   }
 
-  validateForm = () => {
-    let errors = {};
-    let isValid = true;
-
-    Object.keys(this.state).forEach((key) => {
-      if (
-        key !== "errors" &&
-        key !== "productImagePreview" &&
-        this.state[key] === ""
-      ) {
-        errors[key] = "This field is required";
-        isValid = false;
-      }
-    });
-
-    // File validation
-    if (!this.state.productImage) {
-      errors.productImage = "Product image is required";
-      isValid = false;
-    } else {
-      const file = this.state.productImage;
-      const fileSize = file.size / 1024 / 1024; // in MB
-      const validTypes = ["image/jpeg", "image/png", "image/jpg"];
-
-      if (!validTypes.includes(file.type)) {
-        errors.productImage = "Only JPG, JPEG, and PNG files are allowed";
-        isValid = false;
-      }
-
-      if (fileSize > 5) {
-        errors.productImage = "File size should be less than 5MB";
-        isValid = false;
-      }
-    }
-
-    this.setState({ errors });
-    return isValid;
-  };
 
   handleSubmit = (event) => {
     event.preventDefault();

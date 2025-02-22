@@ -213,7 +213,6 @@ export class Account extends Component {
                             <input
                               type="text"
                               id="fullName"
-                              className="form-control"
                               placeholder="Enter your full name"
                               value={this.state.fullName}
                               onChange={(e) =>
@@ -250,7 +249,6 @@ export class Account extends Component {
                             <input
                               type="email"
                               id="email"
-                              className="form-control"
                               placeholder="Enter your email address"
                               value={this.state.email}
                               onChange={(e) =>
@@ -267,7 +265,6 @@ export class Account extends Component {
                             <input
                               type="text"
                               id="phone"
-                              className="form-control"
                               placeholder="Enter your phone number"
                               value={this.state.phone}
                               onChange={(e) =>
@@ -300,7 +297,6 @@ export class Account extends Component {
                             <input
                               type="text"
                               id="city"
-                              className="form-control"
                               placeholder="Enter your city"
                               value={this.state.city}
                               onChange={(e) =>
@@ -317,7 +313,6 @@ export class Account extends Component {
                             <input
                               type="text"
                               id="state"
-                              className="form-control"
                               placeholder="Enter your state"
                               value={this.state.state}
                               onChange={(e) =>
@@ -334,7 +329,6 @@ export class Account extends Component {
                             <input
                               type="text"
                               id="zip"
-                              className="form-control"
                               placeholder="Enter your zip code"
                               value={this.state.zip}
                               onChange={(e) =>

@@ -23,34 +23,6 @@ const Register = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-
-    if (file) {
-      const validTypes = ["image/jpeg", "image/png", "image/jpg"];
-      if (!validTypes.includes(file.type)) {
-        setErrors({
-          ...errors,
-          profileImage: "Only JPG, JPEG, and PNG files are allowed.",
-        });
-        return;
-      }
-
-      const maxSize = 2 * 1024 * 1024;
-      if (file.size > maxSize) {
-        setErrors({
-          ...errors,
-          profileImage: "File size must be less than 2MB.",
-        });
-        return;
-      }
-
-      setFormData({ ...formData, profileImage: file });
-      setImagePreview(URL.createObjectURL(file));
-      setErrors({ ...errors, profileImage: "" });
-    }
-  };
-
   const validateForm = (data) => {
     let errors = {};
 
